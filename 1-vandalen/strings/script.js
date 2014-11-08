@@ -2,12 +2,31 @@
 
 window.onload = function(){
 
-	// I denna funktion ska du skriva koden för att hantera "spelet"
 	var convertString = function(str){
-		// Plats för förändring.		
-		// Returnera den konverterade strängen.
-		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
-	
+
+		//check for input errors
+		if (typeof str !== 'string'){
+			throw new Error("Värdet är inte en sträng.");
+		}
+
+		//split string into array
+		var chars = str.split("");
+
+		for(var i = 0; i < chars.length; i++){
+
+			if(chars[i] === "a" || chars[i] === "A" ){
+				chars[i] = "#";
+			}else if(chars[i] === chars[i].toUpperCase()){
+				chars[i] = chars[i].toLowerCase();
+			}else{
+				chars[i]= chars[i].toUpperCase();
+			}
+		
+		}
+
+		//convert array back to string and return for output
+		return chars.join("");
+
 
 
 

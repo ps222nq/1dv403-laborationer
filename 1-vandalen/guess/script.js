@@ -2,12 +2,32 @@
 
 window.onload = function(){
 	
-	var secret = 50; // Detta tal behöver bytas ut mot ett slumpat tal.
+	var secret = Math.floor(Math.random() * 100) + 1;
+	var timesGuessed = 0;
+	var answer = [];
 	
 	// I denna funktion ska du skriva koden för att hantera "spelet"
 	var guess = function(number){
 		console.log("Det hemliga talet: " + secret); // Du når den yttre variabeln secret innifrån funktionen.
 		console.log("Du gissade: " + number); // Detta nummer är det som användaren gissade på.
+
+		if(number == NaN){
+			return [false, "Du måste mata in ett heltal."];
+		}else if(number < 1 || number > 100) {
+			return [false, "Talet är utanför intervallet 0-100."];
+		}else{
+
+			timesGuessed += 1;
+
+			if(number < secret){
+				return [false, "Det hemliga talet är högre!"];
+			}else if(number > secret){
+				return [false, "Det hemliga talet är lägre!"];
+			}else{
+				return [true, "Grattis! Du gissade det hemliga talet " + secret + " och du behövde " + timesGuessed + " gissningar."];
+			}
+
+		}
 			
 		// Plats för förändring.
 
