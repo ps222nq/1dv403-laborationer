@@ -27,12 +27,6 @@ window.onload = function(){
 		//convert array back to string and return for output
 		return chars.join("");
 
-
-
-
-
-
-
 	};
 	// ------------------------------------------------------------------------------
 

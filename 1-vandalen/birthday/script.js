@@ -4,14 +4,34 @@ window.onload = function(){
 
 	
 	var birthday = function(date){
+
+		var numberOfDays;
+
+		var aBirthday = new Date(date);
+		var today = new Date();
+		
+		//if birthday is after today || birthday is NaN, throw error
+
+		//else execute code:
+
+			//set birtday year to this year, if current date is after this years birthday year +1
+
+			//numberofDays = Math.floor((birthday - today) / (1000*60*60*24))
+
+			//use tertiary operator to check if numberofdays is 365, in that case return 0, else return numberofDays
+
+
+
+
 		
 
 
-			// Din kod här.
 
 
 
 
+
+	
 	};
 	// ------------------------------------------------------------------------------
 
