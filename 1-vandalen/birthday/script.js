@@ -29,15 +29,13 @@ window.onload = function(){
 				aBirthday.setFullYear(nextLeapYear);
 			}else{
 				aBirthday.setFullYear(today.getFullYear());
+
+				if (today > aBirthday){
+					aBirthday.setFullYear(today.getFullYear() + 1);
+				}
 			}
 
-			if (today > aBirthday){
-				aBirthday.setFullYear(today.getFullYear() + 1);
-			}
-
-
-
-			numberOfDays = Math.floor((aBirthday - today) / (1000*60*60*24));
+			numberOfDays = Math.ceil((aBirthday - today) / (1000*60*60*24));
 
 			numberOfDays === 365 ? numberOfDays = 0 : numberOfDays = numberOfDays;
 
