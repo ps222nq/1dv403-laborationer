@@ -9,7 +9,15 @@ window.onload = function(){
 		var aBirthday = new Date(date);
 		var today = new Date();
 
-
+		//calculate next leap year
+		if(aBirthday.getFullYear() % 4 === 0) {
+			var thisYear = today.getFullYear();
+			var leapInterval = thisYear + 4;
+			for(var year = thisYear; year  < leapInterval; year++){
+				if(year % 4 === 0){var nextLeapYear = year;
+					console.log(nextLeapYear);}
+			}
+		}
 
 		if(aBirthday > today){
 
@@ -17,13 +25,13 @@ window.onload = function(){
 
 		}else{
 
-			if(aBirthday.getMonth() === 1 && aBirthday.getDate() === 29){
-				aBirthday.setFullYear(2016);  //Hårdkodat. TODO fixa detta
+			if(nextLeapYear){
+				aBirthday.setFullYear(nextLeapYear);
 			}else{
 				aBirthday.setFullYear(today.getFullYear());
 			}
 
-			if (today > aBirthday && aBirthday.getFullYear() % 4 !== 0){
+			if (today > aBirthday){
 				aBirthday.setFullYear(today.getFullYear() + 1);
 			}
 
