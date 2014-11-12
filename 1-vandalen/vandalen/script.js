@@ -1,7 +1,6 @@
 "use strict";
 
 var makePerson = function(persArr){
-//vars needed
 
 //extract names and ages from persArr
 var ages = persArr.map(function(age){return age.age;});
@@ -22,14 +21,24 @@ console.log(names[2]);
 var minAge = ages[0];
 var maxAge = ages[ages.length - 1];
 var averageAge = Math.round((ages.reduce(function(a,b){return a + b;})) / ages.length);
+var stringOfNames = names.join(", ");
 
 //debug
 console.log("min " + minAge);
 console.log("max " + maxAge);
 console.log("avg " + averageAge);
+console.log(stringOfNames);
 
 //return object containing minAge int, maxAge int, averageAge int, names string sep by ", " and a-z sorted
 
+var res = {
+	minAge : minAge,
+	maxAge : maxAge,
+	averageAge : averageAge,
+	names : stringOfNames
+}
+
+return res;
 
 }
 
