@@ -14,8 +14,7 @@ window.onload = function(){
 			var thisYear = today.getFullYear();
 			var leapInterval = thisYear + 4;
 			for(var year = thisYear; year  < leapInterval; year++){
-				if(year % 4 === 0){var nextLeapYear = year;
-					console.log(nextLeapYear);}
+				if(year % 4 === 0){var nextLeapYear = year;}
 			}
 		}
 
