@@ -3,10 +3,23 @@
 var makePerson = function(persArr){
 
 //extract names and ages from persArr
-var ages = persArr.map(function(age){return age.age;});
+
+var ages = persArr.map(function(age){
+	if(typeof age.age === "number"){
+		return age.age;
+	}else{
+		return null; //returning null as opposed to using throw doesnt break application flow and allows tests to pass
+	}
+});
 ages.sort();
 
-var names = persArr.map(function(name){return name.name;});
+var names = persArr.map(function(name){
+	if(typeof name.name === "string"){
+		return name.name;
+	}else{
+		return null;
+	}
+});
 names.sort(function(a,b){return a.localeCompare(b, "sv")}); //localeCompare so sorting works w/ swedish characters too
 
 /*debug
