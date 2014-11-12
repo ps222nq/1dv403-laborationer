@@ -2,17 +2,17 @@
 
 var makePerson = function(persArr){
 
-//extract names and ages from persArr
-
+//extract names from persArr
 var ages = persArr.map(function(age){
 	if(typeof age.age === "number"){
 		return age.age;
 	}else{
-		return null; //returning null as opposed to using throw doesnt break application flow and allows tests to pass
+		return null; //returning null as opposed to using throw doesn't break application flow and allows tests to pass
 	}
 });
 ages.sort();
 
+//extract dates from persArr
 var names = persArr.map(function(name){
 	if(typeof name.name === "string"){
 		return name.name;
@@ -22,43 +22,24 @@ var names = persArr.map(function(name){
 });
 names.sort(function(a,b){return a.localeCompare(b, "sv")}); //localeCompare so sorting works w/ swedish characters too
 
-/*debug
-console.log(ages[0]);
-console.log(ages[1]);
-console.log(ages[2]);
-console.log(names[0]);
-console.log(names[1]);
-console.log(names[2]);
-*/
-
 //calculate minage, maxage, averageage, create names string
-
 var minAge = ages[0];
 var maxAge = ages[ages.length - 1];
 var averageAge = Math.round((ages.reduce(function(a,b){return a + b;})) / ages.length);
 var stringOfNames = names.join(", ");
 
-/*debug
-console.log("min " + minAge);
-console.log("max " + maxAge);
-console.log("avg " + averageAge);
-console.log(stringOfNames); */
 
 //return object containing minAge, maxAge, averageAge, names
-
 var res = {
 	minAge : minAge,
 	maxAge : maxAge,
 	averageAge : averageAge,
 	names : stringOfNames
 }
-
 return res;
 
 }
 
 var data = [{name: "John Häggerud", age: 37}, {name: "Johan Leitet", age: 36}, {name: "Mats Loock", age: 46}];
-
 var result = makePerson(data);
-
 console.log(result);
