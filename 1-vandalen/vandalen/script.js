@@ -3,21 +3,34 @@
 var makePerson = function(persArr){
 
 //extract names from persArr
-var ages = persArr.map(function(age){
-	if(typeof age.age === "number"){
-		return age.age;
+var ages = persArr.map(function(arr){
+if(arr.hasOwnProperty("age")){ 
+	if(typeof arr.age === "number"){
+		return arr.age;
 	}else{
 		return null; //returning null as opposed to using throw doesn't break application flow and allows tests to pass
+		console.log("Felmeddelande: Vänligen uppge ålder som ett positivt heltal.");
 	}
+}
+if(arr.hasOwnProperty("born")){
+	var today = new Date();
+	var birthDate = new Date(arr.born);
+	var yearDiff = (today.getFullYear() - birthDate.getFullYear());
+
+	if (today.getMonth() <= birthDate.getMonth() && today.getDate() <= birthDate.getDate()){
+		yearDiff = yearDiff - 1;
+	}
+}	
 });
 ages.sort();
 
 //extract dates from persArr
-var names = persArr.map(function(name){
-	if(typeof name.name === "string"){
-		return name.name;
+var names = persArr.map(function(arr){
+	if(typeof arr.name === "string"){
+		return arr.name;
 	}else{
 		return null;
+		console.log("Felmeddelande: Vänligen uppge namn som en sträng.");
 	}
 });
 names.sort(function(a,b){return a.localeCompare(b, "sv")}); //localeCompare so sorting works w/ swedish characters too
