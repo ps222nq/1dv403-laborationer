@@ -18,29 +18,35 @@ window.onload = function(){
 			}
 		}
 
+		if(isNaN(aBirthday)){
+		throw new Error("Fel. Vänligen mata in ett giltigt födelsedatum enligt format åååå/mm/dd.");
+		} //JS kollar redan om datumet finns, så skottår tas hand om
+
 		if(aBirthday > today){
 
 			throw new Error("Mata in ett datum innan dagens datum enligt format åååå/mm/dd.")
 
 		}else{
 
-			if(nextLeapYear){
-				aBirthday.setFullYear(nextLeapYear);
-			}else{
-				aBirthday.setFullYear(today.getFullYear());
-
-				if (today > aBirthday){
-					aBirthday.setFullYear(today.getFullYear() + 1);
+				var nextBirthday = new Date(today.getFullYear(), aBirthday.getMonth(), aBirthday.getDate());
+				if(aBirthday.getDate() == 29 && aBirthday.getMonth() == 1 && aBirthday.getFullYear() % 4 == 0){
+					var nextBirthday = new Date(nextLeapYear, aBirthday.getMonth(), aBirthday.getDate());
 				}
-			}
+				
+				if(isNaN(nextBirthday)){
+					throw new Error("Fel. Vänligen mata in ett giltigt födelsedatum enligt format åååå/mm/dd.");
+				}else{
 
-			numberOfDays = Math.ceil((aBirthday - today) / (1000*60*60*24));
-
-			numberOfDays === 365 ? numberOfDays = 0 : numberOfDays = numberOfDays;
-
-			return numberOfDays;
-
+					if (today > nextBirthday){
+						nextBirthday.setFullYear(today.getFullYear() + 1);
+					}
+				}
 		}
+		numberOfDays = Math.ceil((nextBirthday - today) / (1000*60*60*24)); //Math.ceil gör att den inte avrundar mitt på dagen.
+
+		numberOfDays = numberOfDays === 365 ? 0 : numberOfDays;
+
+		return numberOfDays;
 
 	};
 	// ------------------------------------------------------------------------------

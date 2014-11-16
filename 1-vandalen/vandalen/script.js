@@ -2,7 +2,7 @@
 
 var makePerson = function(persArr){
 
-//extract names from persArr
+//extract ages from persArr
 var ages = persArr.map(function(arr){
 if(arr.hasOwnProperty("age")){ 
 	if(typeof arr.age === "number"){

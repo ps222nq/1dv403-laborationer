@@ -11,7 +11,8 @@ window.onload = function(){
 		console.log("Det hemliga talet: " + secret); // Du når den yttre variabeln secret innifrån funktionen.
 		console.log("Du gissade: " + number); // Detta nummer är det som användaren gissade på.
 
-		if(number == NaN){
+		//TODO: fixa felhantering ifall man matar in 23f
+		if(typeof +number !== "number"){
 			return [false, "Du måste mata in ett heltal."];
 		}else if(number < 1 || number > 100) {
 			return [false, "Talet är utanför intervallet 0-100."];
@@ -23,8 +24,10 @@ window.onload = function(){
 				return [false, "Det hemliga talet är högre!"];
 			}else if(number > secret){
 				return [false, "Det hemliga talet är lägre!"];
-			}else{
+			}else if(number == secret){
 				return [true, "Grattis! Du gissade det hemliga talet " + secret + " och du behövde " + timesGuessed + " gissningar."];
+			}else{
+				return [false, "Något gick fel"];
 			}
 
 		}

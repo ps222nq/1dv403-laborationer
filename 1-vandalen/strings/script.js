@@ -5,7 +5,7 @@ window.onload = function(){
 	var convertString = function(str){
 
 		//check for input errors
-		if (typeof str !== 'string'){
+		if (typeof str !== 'string' || !str.length || /^\s*$/.test(str)){
 			throw new Error("Värdet är inte en sträng.");
 		}
 
