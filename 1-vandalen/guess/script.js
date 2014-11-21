@@ -8,11 +8,13 @@ window.onload = function(){
 	
 	// I denna funktion ska du skriva koden för att hantera "spelet"
 	var guess = function(number){
+
+
 		console.log("Det hemliga talet: " + secret); // Du når den yttre variabeln secret innifrån funktionen.
 		console.log("Du gissade: " + number); // Detta nummer är det som användaren gissade på.
 
 		//TODO: fixa felhantering ifall man matar in 23f
-		if(typeof +number !== "number"){
+		if(isNaN(number) || !number || number % 1 !== 0){
 			return [false, "Du måste mata in ett heltal."];
 		}else if(number < 1 || number > 100) {
 			return [false, "Talet är utanför intervallet 0-100."];
