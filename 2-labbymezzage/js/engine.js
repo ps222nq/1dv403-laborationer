@@ -23,6 +23,21 @@ function Message(message, date){
 	}
 
 	Message.prototype.getHTMLText = function() {
-		return this.getText().replace(/ \n /g, "<br />");
+		return "<p>" + this.getText().replace(/ \n /g, "<br />") + "</p>";
 	}
+
+	Message.prototype.getTimeText = function (messageDate) {
+		var hour = this.getDate().getHours();
+		var minutes = this.getDate().getMinutes();
+		var seconds = this.getDate().getSeconds();
+
+		return hour + ":" + minutes + ":" + seconds;
+	}
+
+	Message.prototype.getDateTime = function (messageDate) {
+		var date = this.getDate().toLocaleDateString();
+
+		return "Skapades: " + date + " " + getTimeText();
+	}
+
 }
