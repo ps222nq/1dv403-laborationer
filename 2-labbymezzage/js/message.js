@@ -69,6 +69,7 @@ console.log("här händer nåt");
 				}
 
 			MessageBoard.msgCount();
+			MessageBoard.scrollDown();
 
 
 
