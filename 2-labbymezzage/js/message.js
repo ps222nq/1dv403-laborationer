@@ -2,8 +2,6 @@
 
 window.onload = function() {
 
-console.log("här händer nåt");
-
 	var MessageBoard = {
 
 		messages: [],
@@ -14,6 +12,7 @@ console.log("här händer nåt");
 			var text = document.getElementById("text");
 
 			text.addEventListener("keypress", function(e){
+
 				if(!e) {
 					e = window.event;
 				} else if (e.keyCode == 13 && !e.shiftKey){
@@ -22,6 +21,7 @@ console.log("här händer nåt");
 				}
 			}
 			);
+
 			send.onclick = MessageBoard.getMessages();
 
 		},
@@ -29,9 +29,7 @@ console.log("här händer nåt");
 		getMessages: function() {
 			var text = document.getElementById("text");
 
-			if(text.value == ""){
-				alert('Du måste skriva i ett meddelande!');
-			}else if (text.value != ""){
+				if (text.value != ""){
 
 				MessageBoard.messages.push(new Message(text.value, new Date()));
 				MessageBoard.renderMessage(MessageBoard.messages.length -1);
@@ -44,11 +42,12 @@ console.log("här händer nåt");
 
 		renderMessage: function(msgID) {
 
-			var removeLink = "<a href='#' id='removeLink" + msgID + "'>Ta bort</a>";
-			var timeLink = "<a href='#' id='timeLink" + msgID + "'>Tid</a>";
+			var removeLink = "<a href='#' id='removeLink" + msgID + "' class='removeLink'>Ta bort</a>";
+			var timeLink = "<a href='#' id='timeLink" + msgID + "' class='timeLink'>Tid</a>";
 
 
 			var msgBody = document.createElement("article");
+			msgBody.setAttribute("class", "msgBody");
 			msgBody.innerHTML = MessageBoard.messages[msgID].getHTMLText() + "   " + removeLink +"    " + timeLink;
 			document.getElementById("messageArea").appendChild(msgBody);
 

@@ -1,12 +1,62 @@
+@import url("http://fonts.googleapis.com/css?family=Satisfy");
+
+body{
+	background-color: #F4FAFF;
+}
+
+header{
+	background-image: url("logo.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	padding-left: 90px;
+	font-family: "Courier New", Courier, monospace;
+	font-size:36px;
+}
+
+h1 {
+	margin: 3px 0px;
+}
+
 #messageArea{
-	min-height:200px;
-	max-height:400px;
+	height:400px;
 	overflow-y:scroll;
+	background-color: white;
 	border:1px solid black;
 }
 
-#messageArea article{
+.msgBody{
 	margin:3px;
 	padding:3px;
-	background-color: grey;
+	background-color: #B1E5FF;
+	font-family: 'Satisfy', cursive;
+	border-radius: 5px;
+	-moz-box-shadow:3px 3px 3px grey;
+	box-shadow: 3px 3px 3px grey;
+
+}
+
+.msgBody p{
+	margin:1px;
+	padding:1px;
+}
+
+.removeLink{
+background-image: url("delete.png");
+background-repeat: no-repeat;
+background-size: contain;
+padding-left: 16px;
+margin-left: 3px;
+font-family: "Courier New", Courier, monospace;
+font-size: 0.6em;
+
+}
+
+.timeLink{
+background-image: url("clock.png");
+padding-left: 16px;
+margin-left: 13px;
+background-repeat: no-repeat;
+background-size:contain;
+font-family: "Courier New", Courier, monospace;
+font-size: 0.6em;
 }
