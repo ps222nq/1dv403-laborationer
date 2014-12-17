@@ -2,6 +2,7 @@
 
 body{
 	background-color: #F4FAFF;
+	font-family: "Courier New", Courier, monospace;
 }
 
 header{
@@ -9,7 +10,7 @@ header{
 	background-repeat: no-repeat;
 	background-size: contain;
 	padding-left: 90px;
-	font-family: "Courier New", Courier, monospace;
+
 	font-size:36px;
 }
 
@@ -22,6 +23,12 @@ h1 {
 	overflow-y:scroll;
 	background-color: white;
 	border:1px solid black;
+	border-radius: 3px;
+	margin-bottom: 1em;
+}
+
+#text{
+	border-radius: 3px;
 }
 
 .msgBody{
@@ -59,4 +66,8 @@ background-repeat: no-repeat;
 background-size:contain;
 font-family: "Courier New", Courier, monospace;
 font-size: 0.6em;
+}
+
+.right{
+	float:right;
 }

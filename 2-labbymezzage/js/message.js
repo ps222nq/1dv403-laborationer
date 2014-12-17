@@ -22,7 +22,7 @@ window.onload = function() {
 			}
 			);
 
-			send.onclick = MessageBoard.getMessages();
+			document.getElementById("send").onclick = function() { MessageBoard.getMessages(); }
 
 		},
 
